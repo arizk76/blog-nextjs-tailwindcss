@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { blogPosts } from '../lib/postsData';
+import Link from 'next/link';
+import { blogPosts } from '../../lib/postsData';
 
 export default function Blog() {
   return (
@@ -17,7 +18,10 @@ export default function Blog() {
 
             <p className='font-extralight text-sm mb-1'>{post.date}</p>
 
-            <p className='text-md'>{post.content}</p>
+            <p className='text-md'>{post.description}</p>
+            <Link href={`/blog/${post.slug}`} passHref>
+              <a className='text-teal-600 hover:text-teal-800'>Read more →</a>
+            </Link>
           </div>
         ))}
       </div>
